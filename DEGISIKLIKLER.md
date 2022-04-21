@@ -1,6 +1,6 @@
 # Changelog
 
-`jet-sms-php` üzerinde yapılan önemli değişiklikler bu dosyada dokümante edilecektir.
+`corvass-php` üzerinde yapılan önemli değişiklikler bu dosyada dokümante edilecektir.
 
 ## 1.1.0 - 2018-02-28
 - Kısa mesaj ve kısa mesaj koleksiyonu nesnelerini servis metotlarında kullanabilme özelliği ekler.

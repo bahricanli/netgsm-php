@@ -1,12 +1,12 @@
 # PHP Corvass Client
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/erdemkeren/jet-sms-php.svg?style=flat-square)](https://packagist.org/packages/erdemkeren/jet-sms-php)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/erdemkeren/corvass-php.svg?style=flat-square)](https://packagist.org/packages/erdemkeren/corvass-php)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/erdemkeren/jet-sms-php/master.svg?style=flat-square)](https://travis-ci.org/erdemkeren/jet-sms-php)
+[![Build Status](https://img.shields.io/travis/erdemkeren/corvass-php/master.svg?style=flat-square)](https://travis-ci.org/erdemkeren/corvass-php)
 [![StyleCI](https://styleci.io/repos/121802100/shield?branch=master)](https://styleci.io/repos/121802100)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/erdemkeren/jet-sms-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/erdemkeren/jet-sms-php/?branch=master)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/erdemkeren/jet-sms-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/erdemkeren/jet-sms-php/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/erdemkeren/jet-sms-php.svg?style=flat-square)](https://packagist.org/packages/erdemkeren/jet-sms-php)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/erdemkeren/corvass-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/erdemkeren/corvass-php/?branch=master)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/erdemkeren/corvass-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/erdemkeren/corvass-php/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/erdemkeren/corvass-php.svg?style=flat-square)](https://packagist.org/packages/erdemkeren/corvass-php)
 
 This package provides an easy to use Corvass service which can be used with both XML and Http apis.
 
@@ -32,7 +32,7 @@ Dokümanın türkçe hali için: [BENIOKU](BENIOKU.md)
 You can install this package via composer:
 
 ``` bash
-composer require erdemkeren/jet-sms-php
+composer require erdemkeren/corvass-php
 ```
 
 ### Setting up the Corvass service
@@ -142,7 +142,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [Hilmi Erdem KEREN](https://github.com/erdemkeren)
+- [Bahri Meriç Canlı](https://github.com/erdemkeren)
 
 ## License
 

@@ -2,7 +2,7 @@ Bu dosya bilgilendirme amaçlıdır ve orjinal lisans metni [Lisans](LICENSE.md)
 
 The MIT License (MIT)
 
-Copyright (c) Hilmi Erdem KEREN <erdemkeren@gmail.com>
+Copyright (c) Bahri Meriç Canlı <erdemkeren@gmail.com>
 
 Hiçbir ücret talep edilmeden burada işbu yazılımın bir kopyasını ve belgelendirme 
 dosyalarını (“Yazılım”) elde eden herkese verilen izin; kullanma, kopyalama, 

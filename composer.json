@@ -1,14 +1,16 @@
 {
-    "name": "bmericc/jet-sms-php",
-    "description": "A PHP client library for jet-sms api",
-    "homepage": "https://github.com/laravel-notification-channels/jet-sms",
+    "name": "bahricanli/corvass-php",
+    "description": "A PHP client library for Corvass API",
+    "homepage": "https://github.com/laravel-notification-channels/corvass",
     "version": "1.0.0",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Hilmi Erdem KEREN",
-            "email": "erdemkeren@gmail.com"
+            "name": "Bahri Meriç Canlı",
+            "email": "bahri@bahri.info",
+            "homepage": "https://www.bahri.info",
+            "role": "Developer"
         }
     ],
     "require": {
