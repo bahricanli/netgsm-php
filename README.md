@@ -1,12 +1,12 @@
 # PHP Corvass Client
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/erdemkeren/corvass-php.svg?style=flat-square)](https://packagist.org/packages/erdemkeren/corvass-php)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/bahricanli/corvass-php.svg?style=flat-square)](https://packagist.org/packages/bahricanli/corvass-php)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/erdemkeren/corvass-php/master.svg?style=flat-square)](https://travis-ci.org/erdemkeren/corvass-php)
+[![Build Status](https://img.shields.io/travis/bahricanli/corvass-php/master.svg?style=flat-square)](https://travis-ci.org/bahricanli/corvass-php)
 [![StyleCI](https://styleci.io/repos/121802100/shield?branch=master)](https://styleci.io/repos/121802100)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/erdemkeren/corvass-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/erdemkeren/corvass-php/?branch=master)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/erdemkeren/corvass-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/erdemkeren/corvass-php/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/erdemkeren/corvass-php.svg?style=flat-square)](https://packagist.org/packages/erdemkeren/corvass-php)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bahricanli/corvass-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bahricanli/corvass-php/?branch=master)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/bahricanli/corvass-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/bahricanli/corvass-php/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/bahricanli/corvass-php.svg?style=flat-square)](https://packagist.org/packages/bahricanli/corvass-php)
 
 This package provides an easy to use Corvass service which can be used with both XML and Http apis.
 
@@ -32,7 +32,7 @@ Dokümanın türkçe hali için: [BENIOKU](BENIOKU.md)
 You can install this package via composer:
 
 ``` bash
-composer require erdemkeren/corvass-php
+composer require bahricanli/corvass-php
 ```
 
 ### Setting up the Corvass service
@@ -134,7 +134,7 @@ $ composer test
 
 ## Security
 
-If you discover any security related issues, please email erdemkeren@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email bahri@bahri.info instead of using the issue tracker.
 
 ## Contributing
 
@@ -142,7 +142,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [Bahri Meriç Canlı](https://github.com/erdemkeren)
+- [Bahri Meriç Canlı](https://github.com/bahricanli)
 
 ## License
 

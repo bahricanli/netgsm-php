@@ -23,7 +23,7 @@ For the English version: [README](README.md)
 Bu paket, composer kullanılarak kurulabilir.
 
 ``` bash
-composer require erdemkeren/corvass-php
+composer require bahricanli/corvass-php
 ```
 
 ### Corvass Servisinin Kurulmasi
@@ -135,7 +135,7 @@ Eğer katkıda bulunmak isterseniz lütfen [Katkıda Bulunun](KATKI.md) dosyası
 
 ## Tanıtımlar
 
-- [Bahri Meriç Canlı](https://github.com/erdemkeren)
+- [Bahri Meriç Canlı](https://github.com/bahricanli)
 
 ## Lisans
 
