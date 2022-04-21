@@ -1,31 +1,31 @@
 <?php
 
-namespace BahriCanli\JetSms\Http\Clients;
+namespace BahriCanli\Corvass\Http\Clients;
 
-use BahriCanli\JetSms\ShortMessage;
-use BahriCanli\JetSms\ShortMessageCollection;
-use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
+use BahriCanli\Corvass\ShortMessage;
+use BahriCanli\Corvass\ShortMessageCollection;
+use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
 
 /**
- * Interface JetSmsClientInterface.
+ * Interface CorvassClientInterface.
  */
-interface JetSmsClientInterface
+interface CorvassClientInterface
 {
     /**
-     * Send a short message using the JetSms services.
+     * Send a short message using the Corvass services.
      *
      * @param  ShortMessage $shortMessage
      *
-     * @return JetSmsResponseInterface
+     * @return CorvassResponseInterface
      */
     public function sendShortMessage(ShortMessage $shortMessage);
 
     /**
-     * Send multiple short messages using the JetSms services.
+     * Send multiple short messages using the Corvass services.
      *
      * @param  ShortMessageCollection $shortMessageCollection
      *
-     * @return JetSmsResponseInterface
+     * @return CorvassResponseInterface
      */
     public function sendShortMessages(ShortMessageCollection $shortMessageCollection);
 }

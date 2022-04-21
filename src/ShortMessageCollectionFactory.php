@@ -1,6 +1,6 @@
 <?php
 
-namespace BahriCanli\JetSms;
+namespace BahriCanli\Corvass;
 
 /**
  * Class ShortMessageCollectionFactory.

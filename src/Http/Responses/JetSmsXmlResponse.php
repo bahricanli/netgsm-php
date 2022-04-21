@@ -1,16 +1,16 @@
 <?php
 
-namespace BahriCanli\JetSms\Http\Responses;
+namespace BahriCanli\Corvass\Http\Responses;
 
 use BadMethodCallException;
 
 /**
- * Class JetSmsXmlResponse.
+ * Class CorvassXmlResponse.
  */
-class JetSmsXmlResponse implements JetSmsResponseInterface
+class CorvassXmlResponse implements CorvassResponseInterface
 {
     /**
-     * The predefined status codes of the JetSms Xml api.
+     * The predefined status codes of the Corvass Xml api.
      *
      * @var array
      */
@@ -24,7 +24,7 @@ class JetSmsXmlResponse implements JetSmsResponseInterface
     ];
 
     /**
-     * The JetSms Http status code.
+     * The Corvass Http status code.
      *
      * @var string
      */
@@ -45,7 +45,7 @@ class JetSmsXmlResponse implements JetSmsResponseInterface
     protected $groupId;
 
     /**
-     * XmlJetSmsHttpResponse constructor.
+     * XmlCorvassHttpResponse constructor.
      *
      * @param  string $data
      */
@@ -98,7 +98,7 @@ class JetSmsXmlResponse implements JetSmsResponseInterface
     public function messageReportIdentifiers()
     {
         throw new BadMethodCallException(
-            "JetSms XML API responses do not return message identifiers. Use groupId instead."
+            "Corvass XML API responses do not return message identifiers. Use groupId instead."
         );
     }
 

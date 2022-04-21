@@ -1,13 +1,13 @@
 <?php
 
-namespace BahriCanli\JetSms\Http\Responses;
+namespace BahriCanli\Corvass\Http\Responses;
 
 use BadMethodCallException;
 
 /**
- * Class JetSMSHttpApiResponse.
+ * Class CorvassHttpApiResponse.
  */
-final class JetSmsHttpResponse implements JetSmsResponseInterface
+final class CorvassHttpResponse implements CorvassResponseInterface
 {
     /**
      * The read response of SMS message request..
@@ -17,7 +17,7 @@ final class JetSmsHttpResponse implements JetSmsResponseInterface
     private $responseAttributes = [];
 
     /**
-     * The JetSMS error codes.
+     * The Corvass error codes.
      *
      * @var array
      */
@@ -91,7 +91,7 @@ final class JetSmsHttpResponse implements JetSmsResponseInterface
     public function groupId()
     {
         throw new BadMethodCallException(
-            "JetSms Http API responses do not group bulk message identifiers. Use messageReportIdentifiers instead."
+            "Corvass Http API responses do not group bulk message identifiers. Use messageReportIdentifiers instead."
         );
     }
 

@@ -21,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BahriCanli\\JetSms\\": "src"
+            "BahriCanli\\Corvass\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BahriCanli\\JetSms\\Test\\": "tests"
+            "BahriCanli\\Corvass\\Test\\": "tests"
         }
     },
     "scripts": {

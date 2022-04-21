@@ -1,19 +1,19 @@
 <?php
 
-namespace BahriCanli\JetSms;
+namespace BahriCanli\Corvass;
 
-use BahriCanli\JetSms\Http\Clients\JetSmsClientInterface;
-use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
+use BahriCanli\Corvass\Http\Clients\CorvassClientInterface;
+use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
 
 /**
- * Class JetSmsService.
+ * Class CorvassService.
  */
-final class JetSmsService
+final class CorvassService
 {
     /**
      * The jet sms client implementation.
      *
-     * @var JetSmsClientInterface
+     * @var CorvassClientInterface
      */
     private $client;
 
@@ -60,9 +60,9 @@ final class JetSmsService
     private $afterMultipleShortMessageCallback;
 
     /**
-     * JetSmsService constructor.
+     * CorvassService constructor.
      *
-     * @param  JetSmsClientInterface                  $jetSmsClient
+     * @param  CorvassClientInterface                  $jetSmsClient
      * @param  ShortMessageFactoryInterface           $shortMessageFactory
      * @param  ShortMessageCollectionFactoryInterface $shortMessageCollectionFactory
      * @param  callable|null                          $beforeSingleShortMessageCallback
@@ -71,7 +71,7 @@ final class JetSmsService
      * @param  callable|null                          $afterMultipleShortMessageCallback
      */
     public function __construct(
-        JetSmsClientInterface $jetSmsClient,
+        CorvassClientInterface $jetSmsClient,
         ShortMessageFactoryInterface $shortMessageFactory,
         ShortMessageCollectionFactoryInterface $shortMessageCollectionFactory,
         $beforeSingleShortMessageCallback = null,
@@ -94,7 +94,7 @@ final class JetSmsService
      * @param  array|string|ShortMessage $receivers The receiver(s) of the message or the message object.
      * @param  string|null               $body      The body of the message or null when using short message object.
      *
-     * @return JetSmsResponseInterface The parsed JetSms response object.
+     * @return CorvassResponseInterface The parsed Corvass response object.
      */
     public function sendShortMessage($receivers, $body = null)
     {
@@ -120,7 +120,7 @@ final class JetSmsService
      *
      * @param  array|ShortMessageCollection $messages An array containing short message arrays or collection.
      *
-     * @return JetSmsResponseInterface The parsed JetSms response object.
+     * @return CorvassResponseInterface The parsed Corvass response object.
      */
     public function sendShortMessages($messages)
     {

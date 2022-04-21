@@ -1,17 +1,17 @@
 <?php
 
-namespace BahriCanli\JetSms\Http\Clients;
+namespace BahriCanli\Corvass\Http\Clients;
 
 use GuzzleHttp\Client;
-use BahriCanli\JetSms\ShortMessage;
-use BahriCanli\JetSms\ShortMessageCollection;
-use BahriCanli\JetSms\Http\Responses\JetSmsHttpResponse;
-use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
+use BahriCanli\Corvass\ShortMessage;
+use BahriCanli\Corvass\ShortMessageCollection;
+use BahriCanli\Corvass\Http\Responses\CorvassHttpResponse;
+use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
 
 /**
- * Class JetSmsHttpClient.
+ * Class CorvassHttpClient.
  */
-class JetSmsHttpClient implements JetSmsClientInterface
+class CorvassHttpClient implements CorvassClientInterface
 {
     /**
      * The Http client.
@@ -21,7 +21,7 @@ class JetSmsHttpClient implements JetSmsClientInterface
     private $httpClient;
 
     /**
-     * The JetSms xml request url.
+     * The Corvass xml request url.
      *
      * @var string
      */
@@ -49,7 +49,7 @@ class JetSmsHttpClient implements JetSmsClientInterface
     private $outboxName;
 
     /**
-     * XmlJetSmsClient constructor.
+     * XmlCorvassClient constructor.
      *
      * @param Client $client
      * @param string $url
@@ -67,11 +67,11 @@ class JetSmsHttpClient implements JetSmsClientInterface
     }
 
     /**
-     * Send a short message using the JetSms services.
+     * Send a short message using the Corvass services.
      *
      * @param  ShortMessage $shortMessage
      *
-     * @return JetSmsResponseInterface
+     * @return CorvassResponseInterface
      */
     public function sendShortMessage(ShortMessage $shortMessage)
     {
@@ -83,15 +83,15 @@ class JetSmsHttpClient implements JetSmsClientInterface
             ),
         ]);
 
-        return new JetSmsHttpResponse((string) $guzzleResponse->getBody());
+        return new CorvassHttpResponse((string) $guzzleResponse->getBody());
     }
 
     /**
-     * Send multiple short messages using the JetSms services.
+     * Send multiple short messages using the Corvass services.
      *
      * @param  ShortMessageCollection $shortMessageCollection
      *
-     * @return JetSmsResponseInterface
+     * @return CorvassResponseInterface
      */
     public function sendShortMessages(ShortMessageCollection $shortMessageCollection)
     {
@@ -103,7 +103,7 @@ class JetSmsHttpClient implements JetSmsClientInterface
             ),
         ]);
 
-        return new JetSmsHttpResponse((string) $guzzleResponse->getBody());
+        return new CorvassHttpResponse((string) $guzzleResponse->getBody());
     }
 
     /**

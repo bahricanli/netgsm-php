@@ -1,11 +1,11 @@
 <?php
 
-namespace BahriCanli\JetSms\Http\Responses;
+namespace BahriCanli\Corvass\Http\Responses;
 
 /**
- * Interface JetSmsResponseInterface.
+ * Interface CorvassResponseInterface.
  */
-interface JetSmsResponseInterface
+interface CorvassResponseInterface
 {
     /**
      * Determine if the operation was successful or not.

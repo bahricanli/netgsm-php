@@ -1,14 +1,14 @@
-# PHP JetSMS Client
+# PHP Corvass Client
 
-Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir JetSMS servisi sağlar.
+Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir Corvass servisi sağlar.
 
-This package provides an easy to use JetSMS service which can be used with both XML and Http apis.
+This package provides an easy to use Corvass service which can be used with both XML and Http apis.
 For the English version: [README](README.md)
 
 ## Contents
 
 - [Kurulum](#kurulum)
-    - [JetSMS Servisinin Kurulmasi](#jetsms-servisinin-kurulmasi)
+    - [Corvass Servisinin Kurulmasi](#jetsms-servisinin-kurulmasi)
 - [Kullanim](#kullanim)
     - [Metotlar](#metotlar)
 - [Degisiklik Listesi](#degisiklik-listesi)
@@ -26,27 +26,27 @@ Bu paket, composer kullanılarak kurulabilir.
 composer require erdemkeren/jet-sms-php
 ```
 
-### JetSMS Servisinin Kurulmasi
+### Corvass Servisinin Kurulmasi
 
-JetSMS servisini kullanabilmek için kayıt olunmalı ve kontör satın alınmalı. 
+Corvass servisini kullanabilmek için kayıt olunmalı ve kontör satın alınmalı. 
 
 ## Kullanim
 
-Önce, JetSmsService sınıfı, istenilen istemci uyarlaması kullanarak çalıştırılır.
+Önce, CorvassService sınıfı, istenilen istemci uyarlaması kullanarak çalıştırılır.
 
-- **JetSmsXmlClient**
-- **JetSmsHttpClient** (Bu daha ziyade Rest servisi gibi ama HTTP demeyi tercih etmiş.)
+- **CorvassXmlClient**
+- **CorvassHttpClient** (Bu daha ziyade Rest servisi gibi ama HTTP demeyi tercih etmiş.)
 
 ```php
 require __DIR__ . '/../vendor/autoload.php';
 
-use BahriCanli\JetSms\JetSmsService;
-use BahriCanli\JetSms\ShortMessageFactory;
-use BahriCanli\JetSms\Http\Clients\JetSmsXmlClient;
-use BahriCanli\JetSms\Http\Clients\JetSmsHttpClient;
-use BahriCanli\JetSms\ShortMessageCollectionFactory;
+use BahriCanli\Corvass\CorvassService;
+use BahriCanli\Corvass\ShortMessageFactory;
+use BahriCanli\Corvass\Http\Clients\CorvassXmlClient;
+use BahriCanli\Corvass\Http\Clients\CorvassHttpClient;
+use BahriCanli\Corvass\ShortMessageCollectionFactory;
 
-$service = new JetSmsService(new JetSmsXmlClient(
+$service = new CorvassService(new CorvassXmlClient(
     'www.biotekno.biz:8080/SMS-Web/xmlsms',
     'username',
     'password',
@@ -55,7 +55,7 @@ $service = new JetSmsService(new JetSmsXmlClient(
 
 // ya da
 
-$service = new JetSmsService(new JetSmsHttpClient(
+$service = new CorvassService(new CorvassHttpClient(
     new GuzzleHttp\Client(),
     'https://service.jetsms.com.tr/SMS-Web/HttpSmsSend',
     'username',
@@ -66,7 +66,7 @@ $service = new JetSmsService(new JetSmsHttpClient(
 
 ### Metotlar
 
-JetSmsService örneğini başarıyla çalıştırdıktan sonra; aşağıda bulunan metotlardan birini kullanarak SMS(ler) göndermeye başlayabilirsiniz.
+CorvassService örneğini başarıyla çalıştırdıktan sonra; aşağıda bulunan metotlardan birini kullanarak SMS(ler) göndermeye başlayabilirsiniz.
 
 #### Tek Mesaj - Bir ya da Daha Çok Alıcı
 
@@ -108,8 +108,8 @@ if($response2->isSuccessful()) {
 
 ### Dipnot
 
-Eğer istemci olarak `JetSmsHttpClient` sınıfı kullanılıyorsa `$response->groupId()` çağrısı istisnaya sebep olur.
-Eğer istemci olarak `JetSmsXmlClient` sınıfı kullanılıyorsa `$response->messageReportIdentifiers()` çağrısı istisnaya sebep olur.
+Eğer istemci olarak `CorvassHttpClient` sınıfı kullanılıyorsa `$response->groupId()` çağrısı istisnaya sebep olur.
+Eğer istemci olarak `CorvassXmlClient` sınıfı kullanılıyorsa `$response->messageReportIdentifiers()` çağrısı istisnaya sebep olur.
 
 İstemci uyarlamasını değiştirirken temkinli olun.
 
@@ -126,7 +126,7 @@ $ composer test
 
 ## Güvenlik
 
-Bu paket, JetSMS tarafından sağlanan servisleri kullanmaktadır. Eğer istemci taraflı bir güvenlik açığı bulduysanız; lütfen
+Bu paket, Corvass tarafından sağlanan servisleri kullanmaktadır. Eğer istemci taraflı bir güvenlik açığı bulduysanız; lütfen
 yeni bir ticket açmak yerine geliştiriciye e-posta atın.
 
 ## Katkıda Bulunun

@@ -1,4 +1,4 @@
-# PHP JetSMS Client
+# PHP Corvass Client
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/erdemkeren/jet-sms-php.svg?style=flat-square)](https://packagist.org/packages/erdemkeren/jet-sms-php)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -8,16 +8,16 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/erdemkeren/jet-sms-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/erdemkeren/jet-sms-php/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/erdemkeren/jet-sms-php.svg?style=flat-square)](https://packagist.org/packages/erdemkeren/jet-sms-php)
 
-This package provides an easy to use JetSMS service which can be used with both XML and Http apis.
+This package provides an easy to use Corvass service which can be used with both XML and Http apis.
 
-Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir JetSMS servisi sağlar.
+Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir Corvass servisi sağlar.
 
 Dokümanın türkçe hali için: [BENIOKU](BENIOKU.md)
 
 ## Contents
 
 - [Installation](#installation)
-    - [Setting up the JetSMS service](#setting-up-the-jetsms-service)
+    - [Setting up the Corvass service](#setting-up-the-jetsms-service)
 - [Usage](#usage)
     - [Available methods](#available-methods)
 - [Changelog](#changelog)
@@ -35,27 +35,27 @@ You can install this package via composer:
 composer require erdemkeren/jet-sms-php
 ```
 
-### Setting up the JetSMS service
+### Setting up the Corvass service
 
-You will need to register to JetSMS to use this channel.
+You will need to register to Corvass to use this channel.
 
 ## Usage
 
-First, boot the JetSmsService with your desired client implementation.
-- **JetSmsXmlClient**
-- **JetSmsHttpClient** (This is actually a Rest-Like client but the vendor names their API that way.)
+First, boot the CorvassService with your desired client implementation.
+- **CorvassXmlClient**
+- **CorvassHttpClient** (This is actually a Rest-Like client but the vendor names their API that way.)
 
 ```php
 require __DIR__ . '/../vendor/autoload.php';
 
-use BahriCanli\JetSms\JetSmsService;
-use BahriCanli\JetSms\JetSmsService;
-use BahriCanli\JetSms\ShortMessageFactory;
-use BahriCanli\JetSms\Http\Clients\JetSmsXmlClient;
-use BahriCanli\JetSms\Http\Clients\JetSmsHttpClient;
-use BahriCanli\JetSms\ShortMessageCollectionFactory;
+use BahriCanli\Corvass\CorvassService;
+use BahriCanli\Corvass\CorvassService;
+use BahriCanli\Corvass\ShortMessageFactory;
+use BahriCanli\Corvass\Http\Clients\CorvassXmlClient;
+use BahriCanli\Corvass\Http\Clients\CorvassHttpClient;
+use BahriCanli\Corvass\ShortMessageCollectionFactory;
 
-$service = new JetSmsService(new JetSmsXmlClient(
+$service = new CorvassService(new CorvassXmlClient(
     'www.biotekno.biz:8080/SMS-Web/xmlsms',
     'username',
     'password',
@@ -64,7 +64,7 @@ $service = new JetSmsService(new JetSmsXmlClient(
 
 // ya da
 
-$service = new JetSmsService(new JetSmsHttpClient(
+$service = new CorvassService(new CorvassHttpClient(
     new GuzzleHttp\Client(),
     'https://service.jetsms.com.tr/SMS-Web/HttpSmsSend',
     'username',
@@ -75,7 +75,7 @@ $service = new JetSmsService(new JetSmsHttpClient(
 
 ### Available methods
 
-After successfully booting your JetSmsService instance up; use one of the following methods to send SMS message(s).
+After successfully booting your CorvassService instance up; use one of the following methods to send SMS message(s).
 
 #### One Message - Single or Multiple Recipients:
 
@@ -117,8 +117,8 @@ if($response2->isSuccessful()) {
 
 ### Cross Reference
 
-`$response->groupId()` will throw BadMethodCallException if the client is `JetSmsHttpClient`.
-`$response->messageReportIdentifiers()` will throw BadMethodCallException if the client is `JetSmsXmlClient`.
+`$response->groupId()` will throw BadMethodCallException if the client is `CorvassHttpClient`.
+`$response->messageReportIdentifiers()` will throw BadMethodCallException if the client is `CorvassXmlClient`.
 
 change client implementation with caution.
 

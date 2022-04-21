@@ -1,19 +1,19 @@
 <?php
 
-namespace BahriCanli\JetSms\Http\Clients;
+namespace BahriCanli\Corvass\Http\Clients;
 
-use BahriCanli\JetSms\ShortMessage;
-use BahriCanli\JetSms\ShortMessageCollection;
-use BahriCanli\JetSms\Http\Responses\JetSmsXmlResponse;
-use BahriCanli\JetSms\Http\Responses\JetSmsResponseInterface;
+use BahriCanli\Corvass\ShortMessage;
+use BahriCanli\Corvass\ShortMessageCollection;
+use BahriCanli\Corvass\Http\Responses\CorvassXmlResponse;
+use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
 
 /**
- * Class JetSmsXmlClient.
+ * Class CorvassXmlClient.
  */
-class JetSmsXmlClient implements JetSmsClientInterface
+class CorvassXmlClient implements CorvassClientInterface
 {
     /**
-     * The JetSms xml request url.
+     * The Corvass xml request url.
      *
      * @var string
      */
@@ -41,7 +41,7 @@ class JetSmsXmlClient implements JetSmsClientInterface
     private $outboxName;
 
     /**
-     * XmlJetSmsClient constructor.
+     * XmlCorvassClient constructor.
      *
      * @param string $url
      * @param string $username
@@ -57,31 +57,31 @@ class JetSmsXmlClient implements JetSmsClientInterface
     }
 
     /**
-     * Send a short message using the JetSms services.
+     * Send a short message using the Corvass services.
      *
      * @param  ShortMessage $shortMessage
      *
-     * @return JetSmsResponseInterface
+     * @return CorvassResponseInterface
      */
     public function sendShortMessage(ShortMessage $shortMessage)
     {
         $payload = $this->generateSingleMessageBody($shortMessage);
 
-        return new JetSmsXmlResponse($this->performCurlSession($payload));
+        return new CorvassXmlResponse($this->performCurlSession($payload));
     }
 
     /**
-     * Send multiple short messages using the JetSms services.
+     * Send multiple short messages using the Corvass services.
      *
      * @param  ShortMessageCollection $shortMessageCollection
      *
-     * @return JetSmsResponseInterface
+     * @return CorvassResponseInterface
      */
     public function sendShortMessages(ShortMessageCollection $shortMessageCollection)
     {
         $payload = $this->generateMultipleMessageBody($shortMessageCollection);
 
-        return new JetSmsXmlResponse($this->performCurlSession($payload));
+        return new CorvassXmlResponse($this->performCurlSession($payload));
     }
 
     /**
