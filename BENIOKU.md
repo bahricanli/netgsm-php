@@ -8,7 +8,7 @@ For the English version: [README](README.md)
 ## Contents
 
 - [Kurulum](#kurulum)
-    - [Corvass Servisinin Kurulmasi](#jetsms-servisinin-kurulmasi)
+    - [Corvass Servisinin Kurulmasi](#corvass-servisinin-kurulmasi)
 - [Kullanim](#kullanim)
     - [Metotlar](#metotlar)
 - [Degisiklik Listesi](#degisiklik-listesi)

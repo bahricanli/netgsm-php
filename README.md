@@ -17,7 +17,7 @@ Dokümanın türkçe hali için: [BENIOKU](BENIOKU.md)
 ## Contents
 
 - [Installation](#installation)
-    - [Setting up the Corvass service](#setting-up-the-jetsms-service)
+    - [Setting up the Corvass service](#setting-up-the-corvass-service)
 - [Usage](#usage)
     - [Available methods](#available-methods)
 - [Changelog](#changelog)

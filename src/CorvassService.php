@@ -11,7 +11,7 @@ use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
 final class CorvassService
 {
     /**
-     * The jet sms client implementation.
+     * The corvass client implementation.
      *
      * @var CorvassClientInterface
      */
