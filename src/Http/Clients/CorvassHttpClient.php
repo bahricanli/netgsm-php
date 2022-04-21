@@ -114,7 +114,7 @@ class CorvassHttpClient implements CorvassClientInterface
     private function getSendDate()
     {
         return [
-            'SendDate' => null,
+            'SDate' => null,
         ];
     }
 
@@ -128,7 +128,7 @@ class CorvassHttpClient implements CorvassClientInterface
         return [
             'Username'       => $this->username,
             'Password'       => $this->password,
-            'TransmissionID' => $this->outboxName,
+            'Originator' => $this->outboxName,
         ];
     }
 }
