@@ -62,7 +62,7 @@ final class CorvassService
     /**
      * CorvassService constructor.
      *
-     * @param  CorvassClientInterface                  $jetSmsClient
+     * @param  CorvassClientInterface                  $corvassClient
      * @param  ShortMessageFactoryInterface           $shortMessageFactory
      * @param  ShortMessageCollectionFactoryInterface $shortMessageCollectionFactory
      * @param  callable|null                          $beforeSingleShortMessageCallback
@@ -71,7 +71,7 @@ final class CorvassService
      * @param  callable|null                          $afterMultipleShortMessageCallback
      */
     public function __construct(
-        CorvassClientInterface $jetSmsClient,
+        CorvassClientInterface $corvassClient,
         ShortMessageFactoryInterface $shortMessageFactory,
         ShortMessageCollectionFactoryInterface $shortMessageCollectionFactory,
         $beforeSingleShortMessageCallback = null,
@@ -79,7 +79,7 @@ final class CorvassService
         $beforeMultipleShortMessageCallback = null,
         $afterMultipleShortMessageCallback = null
     ) {
-        $this->client = $jetSmsClient;
+        $this->client = $corvassClient;
         $this->factory = $shortMessageFactory;
         $this->collectionFactory = $shortMessageCollectionFactory;
         $this->beforeSingleShortMessageCallback = $beforeSingleShortMessageCallback;
