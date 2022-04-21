@@ -56,7 +56,7 @@ use BahriCanli\Corvass\Http\Clients\CorvassHttpClient;
 use BahriCanli\Corvass\ShortMessageCollectionFactory;
 
 $service = new CorvassService(new CorvassXmlClient(
-    'www.biotekno.biz:8080/SMS-Web/xmlsms',
+    'sms.corvass.net/xml',
     'username',
     'password',
     'outboxname'
@@ -66,7 +66,7 @@ $service = new CorvassService(new CorvassXmlClient(
 
 $service = new CorvassService(new CorvassHttpClient(
     new GuzzleHttp\Client(),
-    'https://service.jetsms.com.tr/SMS-Web/HttpSmsSend',
+    'https://sms.corvass.net/http',
     'username',
     'password',
     'outboxname'
