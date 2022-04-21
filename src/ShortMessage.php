@@ -58,8 +58,8 @@ class ShortMessage
     public function toArray()
     {
         return array_filter([
-            'Msisdns'        => $this->receiversString('|'),
-            'Messages'       => $this->body(),
+            'numbers'        => $this->receiversString(','),
+            'message'       => $this->body(),
         ]);
     }
 
@@ -68,7 +68,7 @@ class ShortMessage
         $text = str_replace("'", "&apos;", htmlentities($this->body()));
         $gsmNo = $this->receiversString(',');
 
-        return "<text>{$text}</text><message><gsmnos>{$gsmNo}</gsmnos></message>";
+        return "<message>{$text}</message><msisdnArray>{$gsmNo}</msisdnArray>";
     }
 
     /**
@@ -81,6 +81,6 @@ class ShortMessage
         $text = str_replace("'", "&apos;", htmlentities($this->body()));
         $gsmNo = $this->receiversString(',');
 
-        return "<message><gsmno>{$gsmNo}</gsmno><text>{$text}</text></message>";
+        return "<message><msisdn>{$gsmNo}</msisdn><messageBody>{$text}</messageBody></message>";
     }
 }

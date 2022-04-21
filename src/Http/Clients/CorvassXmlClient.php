@@ -93,13 +93,14 @@ class CorvassXmlClient implements CorvassClientInterface
      */
     private function generateSingleMessageBody(ShortMessage $shortMessage)
     {
-        $body = '<?xml version="1.0" encoding="iso-8859-9"?>';
-        $body .= '<message-context type="smmgsd">';
+        $body = '<?xml version="1.0" encoding="UTF-8"?>';
+        $body .= '<Request>';
         $body .= $this->generateAuthTags();
+        $body .= $this->getExtraPramaters();
         $body .= $this->generateValidityRangeTags();
         $body .= $shortMessage->toSingleMessageXml();
-        $body .= '</message-context>';
-
+        $body .= '<description></description>';
+        $body .= '</Request>';
         return $body;
     }
 
@@ -112,19 +113,23 @@ class CorvassXmlClient implements CorvassClientInterface
      */
     private function generateMultipleMessageBody(ShortMessageCollection $shortMessageCollection)
     {
-        $body = '<?xml version="1.0" encoding="iso-8859-9"?>';
-        $body .= '<message-context type="mmmgsd">';
+        $body = '<?xml version="1.0" encoding="UTF-8"?>';
+        $body .= '<Request>';
         $body .= $this->generateAuthTags();
+        $body .= $this->getExtraPramaters();
         $body .= $this->generateValidityRangeTags();
+        $body .= '<messageArray>';
         $body .= $shortMessageCollection->toXml();
-        $body .= '</message-context>';
+        $body .= '</messageArray>';
+        $body .= '<description></description>';
+        $body .= '</Request>';
 
         return $body;
     }
 
     private function generateValidityRangeTags()
     {
-        return '<start-date></start-date><expire-date></expire-date>';
+        return '<senddate></senddate>';
     }
 
     /**
@@ -134,9 +139,25 @@ class CorvassXmlClient implements CorvassClientInterface
      */
     private function generateAuthTags()
     {
-        return "<username>{$this->username}</username>"
-            . "<password>{$this->password}</password>"
-            . "<outbox-name>{$this->outboxName}</outbox-name>";
+
+        return "<Authentication>"
+            ."<apikey>{$this->username}</apikey>"
+            . "<apisecret>{$this->password}</apisecret>"
+            . "</Authentication>"
+            . "<originator>{$this->outboxName}</originator>";
+    }
+
+    /**
+     * Get the extra parameters of the contents.
+     *
+     * @return array
+     */
+    private function getExtraPramaters()
+    {
+        return 
+            '<messageType>'.'B'.'</messageType>'
+            .'<recipientType>'.'TACIR'.'</recipientType>'
+        ;
     }
 
     /**

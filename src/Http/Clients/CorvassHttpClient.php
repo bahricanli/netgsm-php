@@ -75,13 +75,14 @@ class CorvassHttpClient implements CorvassClientInterface
      */
     public function sendShortMessage(ShortMessage $shortMessage)
     {
-        $guzzleResponse = $this->httpClient->request('POST', $this->url, [
+
+        $guzzleResponse = $this->httpClient->request('POST', $this->url,  [
             'form_params' => array_merge(
                 $shortMessage->toArray(),
-                $this->getSendDate(),
+                $this->getExtraPramaters(),
                 $this->getCredentials()
             ),
-        ]);
+        ]);        
 
         return new CorvassHttpResponse((string) $guzzleResponse->getBody());
     }
@@ -98,12 +99,26 @@ class CorvassHttpClient implements CorvassClientInterface
         $guzzleResponse = $this->httpClient->request('POST', $this->url, [
             'form_params' => array_merge(
                 $shortMessageCollection->toArray(),
-                $this->getSendDate(),
-                $this->getCredentials()
+                $this->getExtraPramaters(),
+                $this->getCredentials(),                
             ),
         ]);
 
         return new CorvassHttpResponse((string) $guzzleResponse->getBody());
+    }
+
+    /**
+     * Get the extra parameters of the contents.
+     *
+     * @return array
+     */
+    private function getExtraPramaters()
+    {
+        return [
+            'action' => 0,
+            'messageType' => 'B',
+            'recipientType' => 'TACIR',
+        ];
     }
 
     /**
@@ -114,7 +129,7 @@ class CorvassHttpClient implements CorvassClientInterface
     private function getSendDate()
     {
         return [
-            'SDate' => null,
+            'sDate' => null,
         ];
     }
 
@@ -126,9 +141,9 @@ class CorvassHttpClient implements CorvassClientInterface
     private function getCredentials()
     {
         return [
-            'Username'       => $this->username,
-            'Password'       => $this->password,
-            'Originator' => $this->outboxName,
+            'username'       => $this->username,
+            'password'       => $this->password,
+            'originator'     => $this->outboxName,
         ];
     }
 }
