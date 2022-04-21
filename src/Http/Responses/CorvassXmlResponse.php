@@ -15,12 +15,19 @@ class CorvassXmlResponse implements CorvassResponseInterface
      * @var array
      */
     protected static $statuses = [
-        '00' => 'Success',
-        '10' => 'Invalid client credentials',
-        '11' => 'Insufficient funds',
-        '20' => 'Invalid xml',
-        '81' => 'Out of limits',
-        '90' => 'System error',
+        '0' => 'Başarılı İşlem',
+        '1' => 'Genel Hata (detay için description alanına bakınız.)',
+        '2' => 'Geçersiz Alfanumerik',
+        '3' => 'Mesaj metni alanı boş bırakılmış',
+        '4' => 'MSISDN Alanları boş bırakılmış',
+        '5' => 'Yetersiz kredi',
+        '6' => 'Mesaj gönderimi gerçekleştirilemedi',
+        '7' => 'messageArray alanı boş',
+        '20' => 'Request limiti aşıldı',
+        '21' => 'SMS/DK limit aşıldı, lütfen bekleyiniz',
+        '9996' => 'Hatalı / geçersiz istek URL adresi',
+        '9997' => 'Hatalı / geçersiz JSON Formatı',
+        '9999' => 'Hatalı / geçersiz authentication bilgisi',
     ];
 
     /**

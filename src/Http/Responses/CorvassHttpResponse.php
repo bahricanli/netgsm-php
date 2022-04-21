@@ -22,15 +22,12 @@ final class CorvassHttpResponse implements CorvassResponseInterface
      * @var array
      */
     private static $statuses = [
-        '0'   => 'Success',
-        '-1'  => 'The specified SMS outbox name is invalid',
-        '-5'  => 'The SMS service credentials are incorrect',
-        '-6'  => 'The specified data is malformed',
-        '-7'  => 'The send date of the SMS message has already expired',
-        '-8'  => 'The SMS gsm number is invalid',
-        '-9'  => 'The SMS message body is missing',
-        '-15' => 'The SMS service is having some trouble at the moment',
-        '-99' => 'The SMS service encountered an unexpected error',
+        '0' => 'Başarılı İşlem',
+        '1' => 'Hatalı apikey / apisecret bilgisi',
+        '2' => 'SMS gönderiminde yetersiz kredi / Raporlama: geçersiz msgid, paket işlenmemiş ya da rapor oluşturulmamış',
+        '4' => 'Eksik parametre',
+        '5' => 'Hatalı parametre',
+        '6' => 'Tanımsız orijinatör bilgisi',
     ];
 
     /**
@@ -118,6 +115,10 @@ final class CorvassHttpResponse implements CorvassResponseInterface
      */
     private function readResponseBodyString($responseBodyString)
     {
+
+        $result['status'] = $responseBodyString;
+
+        /*
         $responseLines = array_filter(array_map(function ($value) {
             return trim($value);
         }, explode("\n", $responseBodyString)));
@@ -127,6 +128,7 @@ final class CorvassHttpResponse implements CorvassResponseInterface
             $responseParts = explode('=', $responseLine);
             $result[strtolower($responseParts[0])] = $responseParts[1];
         }
+        */
 
         $status = (int) $result['status'];
         unset($result['status']);
