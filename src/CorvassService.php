@@ -1,19 +1,19 @@
 <?php
 
-namespace BahriCanli\Corvass;
+namespace BahriCanli\netgsm;
 
-use BahriCanli\Corvass\Http\Clients\CorvassClientInterface;
-use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
+use BahriCanli\netgsm\Http\Clients\netgsmClientInterface;
+use BahriCanli\netgsm\Http\Responses\netgsmResponseInterface;
 
 /**
- * Class CorvassService.
+ * Class netgsmService.
  */
-final class CorvassService
+final class netgsmService
 {
     /**
-     * The corvass client implementation.
+     * The netgsm client implementation.
      *
-     * @var CorvassClientInterface
+     * @var netgsmClientInterface
      */
     private $client;
 
@@ -60,9 +60,9 @@ final class CorvassService
     private $afterMultipleShortMessageCallback;
 
     /**
-     * CorvassService constructor.
+     * netgsmService constructor.
      *
-     * @param  CorvassClientInterface                  $corvassClient
+     * @param  netgsmClientInterface                  $netgsmClient
      * @param  ShortMessageFactoryInterface           $shortMessageFactory
      * @param  ShortMessageCollectionFactoryInterface $shortMessageCollectionFactory
      * @param  callable|null                          $beforeSingleShortMessageCallback
@@ -71,7 +71,7 @@ final class CorvassService
      * @param  callable|null                          $afterMultipleShortMessageCallback
      */
     public function __construct(
-        CorvassClientInterface $corvassClient,
+        netgsmClientInterface $netgsmClient,
         ShortMessageFactoryInterface $shortMessageFactory,
         ShortMessageCollectionFactoryInterface $shortMessageCollectionFactory,
         $beforeSingleShortMessageCallback = null,
@@ -79,7 +79,7 @@ final class CorvassService
         $beforeMultipleShortMessageCallback = null,
         $afterMultipleShortMessageCallback = null
     ) {
-        $this->client = $corvassClient;
+        $this->client = $netgsmClient;
         $this->factory = $shortMessageFactory;
         $this->collectionFactory = $shortMessageCollectionFactory;
         $this->beforeSingleShortMessageCallback = $beforeSingleShortMessageCallback;
@@ -94,7 +94,7 @@ final class CorvassService
      * @param  array|string|ShortMessage $receivers The receiver(s) of the message or the message object.
      * @param  string|null               $body      The body of the message or null when using short message object.
      *
-     * @return CorvassResponseInterface The parsed Corvass response object.
+     * @return netgsmResponseInterface The parsed netgsm response object.
      */
     public function sendShortMessage($receivers, $body = null)
     {
@@ -120,7 +120,7 @@ final class CorvassService
      *
      * @param  array|ShortMessageCollection $messages An array containing short message arrays or collection.
      *
-     * @return CorvassResponseInterface The parsed Corvass response object.
+     * @return netgsmResponseInterface The parsed netgsm response object.
      */
     public function sendShortMessages($messages)
     {

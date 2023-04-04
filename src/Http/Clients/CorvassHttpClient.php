@@ -1,17 +1,17 @@
 <?php
 
-namespace BahriCanli\Corvass\Http\Clients;
+namespace BahriCanli\netgsm\Http\Clients;
 
 use GuzzleHttp\Client;
-use BahriCanli\Corvass\ShortMessage;
-use BahriCanli\Corvass\ShortMessageCollection;
-use BahriCanli\Corvass\Http\Responses\CorvassHttpResponse;
-use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
+use BahriCanli\netgsm\ShortMessage;
+use BahriCanli\netgsm\ShortMessageCollection;
+use BahriCanli\netgsm\Http\Responses\netgsmHttpResponse;
+use BahriCanli\netgsm\Http\Responses\netgsmResponseInterface;
 
 /**
- * Class CorvassHttpClient.
+ * Class netgsmHttpClient.
  */
-class CorvassHttpClient implements CorvassClientInterface
+class netgsmHttpClient implements netgsmClientInterface
 {
     /**
      * The Http client.
@@ -21,7 +21,7 @@ class CorvassHttpClient implements CorvassClientInterface
     private $httpClient;
 
     /**
-     * The Corvass xml request url.
+     * The netgsm xml request url.
      *
      * @var string
      */
@@ -49,7 +49,7 @@ class CorvassHttpClient implements CorvassClientInterface
     private $outboxName;
 
     /**
-     * XmlCorvassClient constructor.
+     * XmlnetgsmClient constructor.
      *
      * @param Client $client
      * @param string $url
@@ -67,11 +67,11 @@ class CorvassHttpClient implements CorvassClientInterface
     }
 
     /**
-     * Send a short message using the Corvass services.
+     * Send a short message using the netgsm services.
      *
      * @param  ShortMessage $shortMessage
      *
-     * @return CorvassResponseInterface
+     * @return netgsmResponseInterface
      */
     public function sendShortMessage(ShortMessage $shortMessage)
     {
@@ -82,17 +82,17 @@ class CorvassHttpClient implements CorvassClientInterface
                 $this->getExtraPramaters(),
                 $this->getCredentials()
             ),
-        ]);        
+        ]);
 
-        return new CorvassHttpResponse((string) $guzzleResponse->getBody());
+        return new netgsmHttpResponse((string) $guzzleResponse->getBody());
     }
 
     /**
-     * Send multiple short messages using the Corvass services.
+     * Send multiple short messages using the netgsm services.
      *
      * @param  ShortMessageCollection $shortMessageCollection
      *
-     * @return CorvassResponseInterface
+     * @return netgsmResponseInterface
      */
     public function sendShortMessages(ShortMessageCollection $shortMessageCollection)
     {
@@ -100,11 +100,11 @@ class CorvassHttpClient implements CorvassClientInterface
             'form_params' => array_merge(
                 $shortMessageCollection->toArray(),
                 $this->getExtraPramaters(),
-                $this->getCredentials(),                
+                $this->getCredentials(),
             ),
         ]);
 
-        return new CorvassHttpResponse((string) $guzzleResponse->getBody());
+        return new netgsmHttpResponse((string) $guzzleResponse->getBody());
     }
 
     /**

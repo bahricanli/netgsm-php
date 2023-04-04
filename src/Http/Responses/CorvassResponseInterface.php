@@ -1,11 +1,11 @@
 <?php
 
-namespace BahriCanli\Corvass\Http\Responses;
+namespace BahriCanli\netgsm\Http\Responses;
 
 /**
- * Interface CorvassResponseInterface.
+ * Interface netgsmResponseInterface.
  */
-interface CorvassResponseInterface
+interface netgsmResponseInterface
 {
     /**
      * Determine if the operation was successful or not.

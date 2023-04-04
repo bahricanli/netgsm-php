@@ -1,13 +1,13 @@
 <?php
 
-namespace BahriCanli\Corvass\Http\Responses;
+namespace BahriCanli\netgsm\Http\Responses;
 
 use BadMethodCallException;
 
 /**
- * Class CorvassHttpApiResponse.
+ * Class netgsmHttpApiResponse.
  */
-final class CorvassHttpResponse implements CorvassResponseInterface
+final class netgsmHttpResponse implements netgsmResponseInterface
 {
     /**
      * The read response of SMS message request..
@@ -17,7 +17,7 @@ final class CorvassHttpResponse implements CorvassResponseInterface
     private $responseAttributes = [];
 
     /**
-     * The Corvass error codes.
+     * The netgsm error codes.
      *
      * @var array
      */
@@ -88,7 +88,7 @@ final class CorvassHttpResponse implements CorvassResponseInterface
     public function groupId()
     {
         throw new BadMethodCallException(
-            "Corvass Http API responses do not group bulk message identifiers. Use messageReportIdentifiers instead."
+            "netgsm Http API responses do not group bulk message identifiers. Use messageReportIdentifiers instead."
         );
     }
 

@@ -1,23 +1,23 @@
-# PHP Corvass Client
+# PHP netgsm Client
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/bahricanli/corvass-php.svg?style=flat-square)](https://packagist.org/packages/bahricanli/corvass-php)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/bahricanli/netgsm-php.svg?style=flat-square)](https://packagist.org/packages/bahricanli/netgsm-php)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/bahricanli/corvass-php/master.svg?style=flat-square)](https://travis-ci.org/bahricanli/corvass-php)
+[![Build Status](https://img.shields.io/travis/bahricanli/netgsm-php/master.svg?style=flat-square)](https://travis-ci.org/bahricanli/netgsm-php)
 [![StyleCI](https://styleci.io/repos/121802100/shield?branch=master)](https://styleci.io/repos/121802100)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bahricanli/corvass-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bahricanli/corvass-php/?branch=master)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/bahricanli/corvass-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/bahricanli/corvass-php/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/bahricanli/corvass-php.svg?style=flat-square)](https://packagist.org/packages/bahricanli/corvass-php)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bahricanli/netgsm-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bahricanli/netgsm-php/?branch=master)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/bahricanli/netgsm-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/bahricanli/netgsm-php/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/bahricanli/netgsm-php.svg?style=flat-square)](https://packagist.org/packages/bahricanli/netgsm-php)
 
-This package provides an easy to use Corvass service which can be used with both XML and Http apis.
+This package provides an easy to use netgsm service which can be used with both XML and Http apis.
 
-Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir Corvass servisi sağlar.
+Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir netgsm servisi sağlar.
 
 Dokümanın türkçe hali için: [BENIOKU](BENIOKU.md)
 
 ## Contents
 
 - [Installation](#installation)
-    - [Setting up the Corvass service](#setting-up-the-corvass-service)
+    - [Setting up the netgsm service](#setting-up-the-netgsm-service)
 - [Usage](#usage)
     - [Available methods](#available-methods)
 - [Changelog](#changelog)
@@ -32,31 +32,31 @@ Dokümanın türkçe hali için: [BENIOKU](BENIOKU.md)
 You can install this package via composer:
 
 ``` bash
-composer require bahricanli/corvass-php
+composer require bahricanli/netgsm-php
 ```
 
-### Setting up the Corvass service
+### Setting up the netgsm service
 
-You will need to register to Corvass to use this channel.
+You will need to register to netgsm to use this channel.
 
 ## Usage
 
-First, boot the CorvassService with your desired client implementation.
-- **CorvassXmlClient**
-- **CorvassHttpClient** (This is actually a Rest-Like client but the vendor names their API that way.)
+First, boot the netgsmService with your desired client implementation.
+- **netgsmXmlClient**
+- **netgsmHttpClient** (This is actually a Rest-Like client but the vendor names their API that way.)
 
 ```php
 require __DIR__ . '/../vendor/autoload.php';
 
-use BahriCanli\Corvass\CorvassService;
-use BahriCanli\Corvass\CorvassService;
-use BahriCanli\Corvass\ShortMessageFactory;
-use BahriCanli\Corvass\Http\Clients\CorvassXmlClient;
-use BahriCanli\Corvass\Http\Clients\CorvassHttpClient;
-use BahriCanli\Corvass\ShortMessageCollectionFactory;
+use BahriCanli\netgsm\netgsmService;
+use BahriCanli\netgsm\netgsmService;
+use BahriCanli\netgsm\ShortMessageFactory;
+use BahriCanli\netgsm\Http\Clients\netgsmXmlClient;
+use BahriCanli\netgsm\Http\Clients\netgsmHttpClient;
+use BahriCanli\netgsm\ShortMessageCollectionFactory;
 
-$service = new CorvassService(new CorvassXmlClient(
-    'sms.corvass.net/xml',
+$service = new netgsmService(new netgsmXmlClient(
+    'sms.netgsm.net/xml',
     'username',
     'password',
     'outboxname'
@@ -64,9 +64,9 @@ $service = new CorvassService(new CorvassXmlClient(
 
 // ya da
 
-$service = new CorvassService(new CorvassHttpClient(
+$service = new netgsmService(new netgsmHttpClient(
     new GuzzleHttp\Client(),
-    'https://sms.corvass.net/http',
+    'https://sms.netgsm.net/http',
     'username',
     'password',
     'outboxname'
@@ -75,7 +75,7 @@ $service = new CorvassService(new CorvassHttpClient(
 
 ### Available methods
 
-After successfully booting your CorvassService instance up; use one of the following methods to send SMS message(s).
+After successfully booting your netgsmService instance up; use one of the following methods to send SMS message(s).
 
 #### One Message - Single or Multiple Recipients:
 
@@ -117,8 +117,8 @@ if($response2->isSuccessful()) {
 
 ### Cross Reference
 
-`$response->groupId()` will throw BadMethodCallException if the client is `CorvassHttpClient`.
-`$response->messageReportIdentifiers()` will throw BadMethodCallException if the client is `CorvassXmlClient`.
+`$response->groupId()` will throw BadMethodCallException if the client is `netgsmHttpClient`.
+`$response->messageReportIdentifiers()` will throw BadMethodCallException if the client is `netgsmXmlClient`.
 
 change client implementation with caution.
 

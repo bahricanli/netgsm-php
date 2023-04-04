@@ -1,14 +1,14 @@
-# PHP Corvass Client
+# PHP NetGsm Client
 
-Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir Corvass servisi sağlar.
+Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir netgsm servisi sağlar.
 
-This package provides an easy to use Corvass service which can be used with both XML and Http apis.
+This package provides an easy to use netgsm service which can be used with both XML and Http apis.
 For the English version: [README](README.md)
 
 ## Contents
 
 - [Kurulum](#kurulum)
-    - [Corvass Servisinin Kurulmasi](#corvass-servisinin-kurulmasi)
+    - [netgsm Servisinin Kurulmasi](#netgsm-servisinin-kurulmasi)
 - [Kullanim](#kullanim)
     - [Metotlar](#metotlar)
 - [Degisiklik Listesi](#degisiklik-listesi)
@@ -23,31 +23,31 @@ For the English version: [README](README.md)
 Bu paket, composer kullanılarak kurulabilir.
 
 ``` bash
-composer require bahricanli/corvass-php
+composer require bahricanli/netgsm-php
 ```
 
-### Corvass Servisinin Kurulmasi
+### netgsm Servisinin Kurulmasi
 
-Corvass servisini kullanabilmek için kayıt olunmalı ve kontör satın alınmalı. 
+netgsm servisini kullanabilmek için kayıt olunmalı ve kontör satın alınmalı. 
 
 ## Kullanim
 
-Önce, CorvassService sınıfı, istenilen istemci uyarlaması kullanarak çalıştırılır.
+Önce, netgsmService sınıfı, istenilen istemci uyarlaması kullanarak çalıştırılır.
 
-- **CorvassXmlClient**
-- **CorvassHttpClient** (Bu daha ziyade Rest servisi gibi ama HTTP demeyi tercih etmiş.)
+- **netgsmXmlClient**
+- **netgsmHttpClient** (Bu daha ziyade Rest servisi gibi ama HTTP demeyi tercih etmiş.)
 
 ```php
 require __DIR__ . '/../vendor/autoload.php';
 
-use BahriCanli\Corvass\CorvassService;
-use BahriCanli\Corvass\ShortMessageFactory;
-use BahriCanli\Corvass\Http\Clients\CorvassXmlClient;
-use BahriCanli\Corvass\Http\Clients\CorvassHttpClient;
-use BahriCanli\Corvass\ShortMessageCollectionFactory;
+use BahriCanli\netgsm\netgsmService;
+use BahriCanli\netgsm\ShortMessageFactory;
+use BahriCanli\netgsm\Http\Clients\netgsmXmlClient;
+use BahriCanli\netgsm\Http\Clients\netgsmHttpClient;
+use BahriCanli\netgsm\ShortMessageCollectionFactory;
 
-$service = new CorvassService(new CorvassXmlClient(
-    'sms.corvass.net/xml',
+$service = new netgsmService(new netgsmXmlClient(
+    'sms.netgsm.net/xml',
     'username',
     'password',
     'outboxname'
@@ -55,9 +55,9 @@ $service = new CorvassService(new CorvassXmlClient(
 
 // ya da
 
-$service = new CorvassService(new CorvassHttpClient(
+$service = new netgsmService(new netgsmHttpClient(
     new GuzzleHttp\Client(),
-    'https://sms.corvass.net/http',
+    'https://sms.netgsm.net/http',
     'username',
     'password',
     'outboxname'
@@ -66,7 +66,7 @@ $service = new CorvassService(new CorvassHttpClient(
 
 ### Metotlar
 
-CorvassService örneğini başarıyla çalıştırdıktan sonra; aşağıda bulunan metotlardan birini kullanarak SMS(ler) göndermeye başlayabilirsiniz.
+netgsmService örneğini başarıyla çalıştırdıktan sonra; aşağıda bulunan metotlardan birini kullanarak SMS(ler) göndermeye başlayabilirsiniz.
 
 #### Tek Mesaj - Bir ya da Daha Çok Alıcı
 
@@ -108,8 +108,8 @@ if($response2->isSuccessful()) {
 
 ### Dipnot
 
-Eğer istemci olarak `CorvassHttpClient` sınıfı kullanılıyorsa `$response->groupId()` çağrısı istisnaya sebep olur.
-Eğer istemci olarak `CorvassXmlClient` sınıfı kullanılıyorsa `$response->messageReportIdentifiers()` çağrısı istisnaya sebep olur.
+Eğer istemci olarak `netgsmHttpClient` sınıfı kullanılıyorsa `$response->groupId()` çağrısı istisnaya sebep olur.
+Eğer istemci olarak `netgsmXmlClient` sınıfı kullanılıyorsa `$response->messageReportIdentifiers()` çağrısı istisnaya sebep olur.
 
 İstemci uyarlamasını değiştirirken temkinli olun.
 
@@ -126,7 +126,7 @@ $ composer test
 
 ## Güvenlik
 
-Bu paket, Corvass tarafından sağlanan servisleri kullanmaktadır. Eğer istemci taraflı bir güvenlik açığı bulduysanız; lütfen
+Bu paket, netgsm tarafından sağlanan servisleri kullanmaktadır. Eğer istemci taraflı bir güvenlik açığı bulduysanız; lütfen
 yeni bir ticket açmak yerine geliştiriciye e-posta atın.
 
 ## Katkıda Bulunun

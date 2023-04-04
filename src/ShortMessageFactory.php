@@ -1,6 +1,6 @@
 <?php
 
-namespace BahriCanli\Corvass;
+namespace BahriCanli\netgsm;
 
 /**
  * Class ShortMessageFactory.

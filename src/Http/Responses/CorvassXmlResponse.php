@@ -1,16 +1,16 @@
 <?php
 
-namespace BahriCanli\Corvass\Http\Responses;
+namespace BahriCanli\netgsm\Http\Responses;
 
 use BadMethodCallException;
 
 /**
- * Class CorvassXmlResponse.
+ * Class netgsmXmlResponse.
  */
-class CorvassXmlResponse implements CorvassResponseInterface
+class netgsmXmlResponse implements netgsmResponseInterface
 {
     /**
-     * The predefined status codes of the Corvass Xml api.
+     * The predefined status codes of the netgsm Xml api.
      *
      * @var array
      */
@@ -31,7 +31,7 @@ class CorvassXmlResponse implements CorvassResponseInterface
     ];
 
     /**
-     * The Corvass Http status code.
+     * The netgsm Http status code.
      *
      * @var string
      */
@@ -52,7 +52,7 @@ class CorvassXmlResponse implements CorvassResponseInterface
     protected $groupId;
 
     /**
-     * XmlCorvassHttpResponse constructor.
+     * XmlnetgsmHttpResponse constructor.
      *
      * @param  string $data
      */
@@ -105,7 +105,7 @@ class CorvassXmlResponse implements CorvassResponseInterface
     public function messageReportIdentifiers()
     {
         throw new BadMethodCallException(
-            "Corvass XML API responses do not return message identifiers. Use groupId instead."
+            "netgsm XML API responses do not return message identifiers. Use groupId instead."
         );
     }
 

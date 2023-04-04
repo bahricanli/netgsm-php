@@ -1,31 +1,31 @@
 <?php
 
-namespace BahriCanli\Corvass\Http\Clients;
+namespace BahriCanli\netgsm\Http\Clients;
 
-use BahriCanli\Corvass\ShortMessage;
-use BahriCanli\Corvass\ShortMessageCollection;
-use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
+use BahriCanli\netgsm\ShortMessage;
+use BahriCanli\netgsm\ShortMessageCollection;
+use BahriCanli\netgsm\Http\Responses\netgsmResponseInterface;
 
 /**
- * Interface CorvassClientInterface.
+ * Interface netgsmClientInterface.
  */
-interface CorvassClientInterface
+interface netgsmClientInterface
 {
     /**
-     * Send a short message using the Corvass services.
+     * Send a short message using the netgsm services.
      *
      * @param  ShortMessage $shortMessage
      *
-     * @return CorvassResponseInterface
+     * @return netgsmResponseInterface
      */
     public function sendShortMessage(ShortMessage $shortMessage);
 
     /**
-     * Send multiple short messages using the Corvass services.
+     * Send multiple short messages using the netgsm services.
      *
      * @param  ShortMessageCollection $shortMessageCollection
      *
-     * @return CorvassResponseInterface
+     * @return netgsmResponseInterface
      */
     public function sendShortMessages(ShortMessageCollection $shortMessageCollection);
 }

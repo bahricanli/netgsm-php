@@ -1,19 +1,19 @@
 <?php
 
-namespace BahriCanli\Corvass\Http\Clients;
+namespace BahriCanli\netgsm\Http\Clients;
 
-use BahriCanli\Corvass\ShortMessage;
-use BahriCanli\Corvass\ShortMessageCollection;
-use BahriCanli\Corvass\Http\Responses\CorvassXmlResponse;
-use BahriCanli\Corvass\Http\Responses\CorvassResponseInterface;
+use BahriCanli\netgsm\ShortMessage;
+use BahriCanli\netgsm\ShortMessageCollection;
+use BahriCanli\netgsm\Http\Responses\netgsmXmlResponse;
+use BahriCanli\netgsm\Http\Responses\netgsmResponseInterface;
 
 /**
- * Class CorvassXmlClient.
+ * Class netgsmXmlClient.
  */
-class CorvassXmlClient implements CorvassClientInterface
+class netgsmXmlClient implements netgsmClientInterface
 {
     /**
-     * The Corvass xml request url.
+     * The netgsm xml request url.
      *
      * @var string
      */
@@ -41,7 +41,7 @@ class CorvassXmlClient implements CorvassClientInterface
     private $outboxName;
 
     /**
-     * XmlCorvassClient constructor.
+     * XmlnetgsmClient constructor.
      *
      * @param string $url
      * @param string $username
@@ -57,31 +57,31 @@ class CorvassXmlClient implements CorvassClientInterface
     }
 
     /**
-     * Send a short message using the Corvass services.
+     * Send a short message using the netgsm services.
      *
      * @param  ShortMessage $shortMessage
      *
-     * @return CorvassResponseInterface
+     * @return netgsmResponseInterface
      */
     public function sendShortMessage(ShortMessage $shortMessage)
     {
         $payload = $this->generateSingleMessageBody($shortMessage);
 
-        return new CorvassXmlResponse($this->performCurlSession($payload));
+        return new netgsmXmlResponse($this->performCurlSession($payload));
     }
 
     /**
-     * Send multiple short messages using the Corvass services.
+     * Send multiple short messages using the netgsm services.
      *
      * @param  ShortMessageCollection $shortMessageCollection
      *
-     * @return CorvassResponseInterface
+     * @return netgsmResponseInterface
      */
     public function sendShortMessages(ShortMessageCollection $shortMessageCollection)
     {
         $payload = $this->generateMultipleMessageBody($shortMessageCollection);
 
-        return new CorvassXmlResponse($this->performCurlSession($payload));
+        return new netgsmXmlResponse($this->performCurlSession($payload));
     }
 
     /**
@@ -154,7 +154,7 @@ class CorvassXmlClient implements CorvassClientInterface
      */
     private function getExtraPramaters()
     {
-        return 
+        return
             '<messageType>'.'B'.'</messageType>'
             .'<recipientType>'.'TACIR'.'</recipientType>'
         ;
