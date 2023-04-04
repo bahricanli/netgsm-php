@@ -2,7 +2,7 @@
     "name": "bahricanli/netgsm-php",
     "description": "A PHP client library for Netgsm API",
     "homepage": "https://github.com/bahricanli/netgsm",
-    "version": "1.0",
+    "version": "1.0.1",
     "type": "library",
     "license": "MIT",
     "authors": [
