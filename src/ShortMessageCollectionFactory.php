@@ -1,6 +1,6 @@
 <?php
 
-namespace BahriCanli\netgsm;
+namespace BahriCanli\Netgsm;
 
 /**
  * Class ShortMessageCollectionFactory.

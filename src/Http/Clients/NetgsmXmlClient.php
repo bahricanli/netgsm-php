@@ -1,19 +1,19 @@
 <?php
 
-namespace BahriCanli\netgsm\Http\Clients;
+namespace BahriCanli\Netgsm\Http\Clients;
 
-use BahriCanli\netgsm\ShortMessage;
-use BahriCanli\netgsm\ShortMessageCollection;
-use BahriCanli\netgsm\Http\Responses\netgsmXmlResponse;
-use BahriCanli\netgsm\Http\Responses\netgsmResponseInterface;
+use BahriCanli\Netgsm\ShortMessage;
+use BahriCanli\Netgsm\ShortMessageCollection;
+use BahriCanli\Netgsm\Http\Responses\NetgsmXmlResponse;
+use BahriCanli\Netgsm\Http\Responses\NetgsmResponseInterface;
 
 /**
- * Class netgsmXmlClient.
+ * Class NetgsmXmlClient.
  */
-class netgsmXmlClient implements netgsmClientInterface
+class NetgsmXmlClient implements NetgsmClientInterface
 {
     /**
-     * The netgsm xml request url.
+     * The Netgsm xml request url.
      *
      * @var string
      */
@@ -41,7 +41,7 @@ class netgsmXmlClient implements netgsmClientInterface
     private $outboxName;
 
     /**
-     * XmlnetgsmClient constructor.
+     * XmlNetgsmClient constructor.
      *
      * @param string $url
      * @param string $username
@@ -57,31 +57,31 @@ class netgsmXmlClient implements netgsmClientInterface
     }
 
     /**
-     * Send a short message using the netgsm services.
+     * Send a short message using the Netgsm services.
      *
      * @param  ShortMessage $shortMessage
      *
-     * @return netgsmResponseInterface
+     * @return NetgsmResponseInterface
      */
     public function sendShortMessage(ShortMessage $shortMessage)
     {
         $payload = $this->generateSingleMessageBody($shortMessage);
 
-        return new netgsmXmlResponse($this->performCurlSession($payload));
+        return new NetgsmXmlResponse($this->performCurlSession($payload));
     }
 
     /**
-     * Send multiple short messages using the netgsm services.
+     * Send multiple short messages using the Netgsm services.
      *
      * @param  ShortMessageCollection $shortMessageCollection
      *
-     * @return netgsmResponseInterface
+     * @return NetgsmResponseInterface
      */
     public function sendShortMessages(ShortMessageCollection $shortMessageCollection)
     {
         $payload = $this->generateMultipleMessageBody($shortMessageCollection);
 
-        return new netgsmXmlResponse($this->performCurlSession($payload));
+        return new NetgsmXmlResponse($this->performCurlSession($payload));
     }
 
     /**

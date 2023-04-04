@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `netgsm-php` will be documented in this file
+All notable changes to `Netgsm-php` will be documented in this file
 
 ## 1.2.0 - 2018-02-28
 - Adds the ability to use short message and short message collection objects with service methods.

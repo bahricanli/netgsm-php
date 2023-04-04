@@ -1,23 +1,23 @@
-# PHP netgsm Client
+# PHP Netgsm Client
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/bahricanli/netgsm-php.svg?style=flat-square)](https://packagist.org/packages/bahricanli/netgsm-php)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/bahricanli/Netgsm-php.svg?style=flat-square)](https://packagist.org/packages/bahricanli/Netgsm-php)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/bahricanli/netgsm-php/master.svg?style=flat-square)](https://travis-ci.org/bahricanli/netgsm-php)
+[![Build Status](https://img.shields.io/travis/bahricanli/Netgsm-php/master.svg?style=flat-square)](https://travis-ci.org/bahricanli/Netgsm-php)
 [![StyleCI](https://styleci.io/repos/121802100/shield?branch=master)](https://styleci.io/repos/121802100)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bahricanli/netgsm-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bahricanli/netgsm-php/?branch=master)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/bahricanli/netgsm-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/bahricanli/netgsm-php/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/bahricanli/netgsm-php.svg?style=flat-square)](https://packagist.org/packages/bahricanli/netgsm-php)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bahricanli/Netgsm-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bahricanli/Netgsm-php/?branch=master)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/bahricanli/Netgsm-php/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/bahricanli/Netgsm-php/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/bahricanli/Netgsm-php.svg?style=flat-square)](https://packagist.org/packages/bahricanli/Netgsm-php)
 
-This package provides an easy to use netgsm service which can be used with both XML and Http apis.
+This package provides an easy to use Netgsm service which can be used with both XML and Http apis.
 
-Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir netgsm servisi sağlar.
+Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir Netgsm servisi sağlar.
 
 Dokümanın türkçe hali için: [BENIOKU](BENIOKU.md)
 
 ## Contents
 
 - [Installation](#installation)
-    - [Setting up the netgsm service](#setting-up-the-netgsm-service)
+    - [Setting up the Netgsm service](#setting-up-the-Netgsm-service)
 - [Usage](#usage)
     - [Available methods](#available-methods)
 - [Changelog](#changelog)
@@ -32,31 +32,31 @@ Dokümanın türkçe hali için: [BENIOKU](BENIOKU.md)
 You can install this package via composer:
 
 ``` bash
-composer require bahricanli/netgsm-php
+composer require bahricanli/Netgsm-php
 ```
 
-### Setting up the netgsm service
+### Setting up the Netgsm service
 
-You will need to register to netgsm to use this channel.
+You will need to register to Netgsm to use this channel.
 
 ## Usage
 
-First, boot the netgsmService with your desired client implementation.
-- **netgsmXmlClient**
-- **netgsmHttpClient** (This is actually a Rest-Like client but the vendor names their API that way.)
+First, boot the NetgsmService with your desired client implementation.
+- **NetgsmXmlClient**
+- **NetgsmHttpClient** (This is actually a Rest-Like client but the vendor names their API that way.)
 
 ```php
 require __DIR__ . '/../vendor/autoload.php';
 
-use BahriCanli\netgsm\netgsmService;
-use BahriCanli\netgsm\netgsmService;
-use BahriCanli\netgsm\ShortMessageFactory;
-use BahriCanli\netgsm\Http\Clients\netgsmXmlClient;
-use BahriCanli\netgsm\Http\Clients\netgsmHttpClient;
-use BahriCanli\netgsm\ShortMessageCollectionFactory;
+use BahriCanli\Netgsm\NetgsmService;
+use BahriCanli\Netgsm\NetgsmService;
+use BahriCanli\Netgsm\ShortMessageFactory;
+use BahriCanli\Netgsm\Http\Clients\NetgsmXmlClient;
+use BahriCanli\Netgsm\Http\Clients\NetgsmHttpClient;
+use BahriCanli\Netgsm\ShortMessageCollectionFactory;
 
-$service = new netgsmService(new netgsmXmlClient(
-    'sms.netgsm.net/xml',
+$service = new NetgsmService(new NetgsmXmlClient(
+    'sms.Netgsm.net/xml',
     'username',
     'password',
     'outboxname'
@@ -64,9 +64,9 @@ $service = new netgsmService(new netgsmXmlClient(
 
 // ya da
 
-$service = new netgsmService(new netgsmHttpClient(
+$service = new NetgsmService(new NetgsmHttpClient(
     new GuzzleHttp\Client(),
-    'https://sms.netgsm.net/http',
+    'https://sms.Netgsm.net/http',
     'username',
     'password',
     'outboxname'
@@ -75,7 +75,7 @@ $service = new netgsmService(new netgsmHttpClient(
 
 ### Available methods
 
-After successfully booting your netgsmService instance up; use one of the following methods to send SMS message(s).
+After successfully booting your NetgsmService instance up; use one of the following methods to send SMS message(s).
 
 #### One Message - Single or Multiple Recipients:
 
@@ -117,8 +117,8 @@ if($response2->isSuccessful()) {
 
 ### Cross Reference
 
-`$response->groupId()` will throw BadMethodCallException if the client is `netgsmHttpClient`.
-`$response->messageReportIdentifiers()` will throw BadMethodCallException if the client is `netgsmXmlClient`.
+`$response->groupId()` will throw BadMethodCallException if the client is `NetgsmHttpClient`.
+`$response->messageReportIdentifiers()` will throw BadMethodCallException if the client is `NetgsmXmlClient`.
 
 change client implementation with caution.
 

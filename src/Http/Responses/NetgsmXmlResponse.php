@@ -1,16 +1,16 @@
 <?php
 
-namespace BahriCanli\netgsm\Http\Responses;
+namespace BahriCanli\Netgsm\Http\Responses;
 
 use BadMethodCallException;
 
 /**
- * Class netgsmXmlResponse.
+ * Class NetgsmXmlResponse.
  */
-class netgsmXmlResponse implements netgsmResponseInterface
+class NetgsmXmlResponse implements NetgsmResponseInterface
 {
     /**
-     * The predefined status codes of the netgsm Xml api.
+     * The predefined status codes of the Netgsm Xml api.
      *
      * @var array
      */
@@ -31,7 +31,7 @@ class netgsmXmlResponse implements netgsmResponseInterface
     ];
 
     /**
-     * The netgsm Http status code.
+     * The Netgsm Http status code.
      *
      * @var string
      */
@@ -52,7 +52,7 @@ class netgsmXmlResponse implements netgsmResponseInterface
     protected $groupId;
 
     /**
-     * XmlnetgsmHttpResponse constructor.
+     * XmlNetgsmHttpResponse constructor.
      *
      * @param  string $data
      */
@@ -105,7 +105,7 @@ class netgsmXmlResponse implements netgsmResponseInterface
     public function messageReportIdentifiers()
     {
         throw new BadMethodCallException(
-            "netgsm XML API responses do not return message identifiers. Use groupId instead."
+            "Netgsm XML API responses do not return message identifiers. Use groupId instead."
         );
     }
 

@@ -1,17 +1,17 @@
 <?php
 
-namespace BahriCanli\netgsm\Http\Clients;
+namespace BahriCanli\Netgsm\Http\Clients;
 
 use GuzzleHttp\Client;
-use BahriCanli\netgsm\ShortMessage;
-use BahriCanli\netgsm\ShortMessageCollection;
-use BahriCanli\netgsm\Http\Responses\netgsmHttpResponse;
-use BahriCanli\netgsm\Http\Responses\netgsmResponseInterface;
+use BahriCanli\Netgsm\ShortMessage;
+use BahriCanli\Netgsm\ShortMessageCollection;
+use BahriCanli\Netgsm\Http\Responses\NetgsmHttpResponse;
+use BahriCanli\Netgsm\Http\Responses\NetgsmResponseInterface;
 
 /**
- * Class netgsmHttpClient.
+ * Class NetgsmHttpClient.
  */
-class netgsmHttpClient implements netgsmClientInterface
+class NetgsmHttpClient implements NetgsmClientInterface
 {
     /**
      * The Http client.
@@ -21,7 +21,7 @@ class netgsmHttpClient implements netgsmClientInterface
     private $httpClient;
 
     /**
-     * The netgsm xml request url.
+     * The Netgsm xml request url.
      *
      * @var string
      */
@@ -49,7 +49,7 @@ class netgsmHttpClient implements netgsmClientInterface
     private $outboxName;
 
     /**
-     * XmlnetgsmClient constructor.
+     * XmlNetgsmClient constructor.
      *
      * @param Client $client
      * @param string $url
@@ -67,11 +67,11 @@ class netgsmHttpClient implements netgsmClientInterface
     }
 
     /**
-     * Send a short message using the netgsm services.
+     * Send a short message using the Netgsm services.
      *
      * @param  ShortMessage $shortMessage
      *
-     * @return netgsmResponseInterface
+     * @return NetgsmResponseInterface
      */
     public function sendShortMessage(ShortMessage $shortMessage)
     {
@@ -84,15 +84,15 @@ class netgsmHttpClient implements netgsmClientInterface
             ),
         ]);
 
-        return new netgsmHttpResponse((string) $guzzleResponse->getBody());
+        return new NetgsmHttpResponse((string) $guzzleResponse->getBody());
     }
 
     /**
-     * Send multiple short messages using the netgsm services.
+     * Send multiple short messages using the Netgsm services.
      *
      * @param  ShortMessageCollection $shortMessageCollection
      *
-     * @return netgsmResponseInterface
+     * @return NetgsmResponseInterface
      */
     public function sendShortMessages(ShortMessageCollection $shortMessageCollection)
     {
@@ -104,7 +104,7 @@ class netgsmHttpClient implements netgsmClientInterface
             ),
         ]);
 
-        return new netgsmHttpResponse((string) $guzzleResponse->getBody());
+        return new NetgsmHttpResponse((string) $guzzleResponse->getBody());
     }
 
     /**

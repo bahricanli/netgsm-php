@@ -1,11 +1,11 @@
 <?php
 
-namespace BahriCanli\netgsm\Http\Responses;
+namespace BahriCanli\Netgsm\Http\Responses;
 
 /**
- * Interface netgsmResponseInterface.
+ * Interface NetgsmResponseInterface.
  */
-interface netgsmResponseInterface
+interface NetgsmResponseInterface
 {
     /**
      * Determine if the operation was successful or not.

@@ -1,19 +1,19 @@
 <?php
 
-namespace BahriCanli\netgsm;
+namespace BahriCanli\Netgsm;
 
-use BahriCanli\netgsm\Http\Clients\netgsmClientInterface;
-use BahriCanli\netgsm\Http\Responses\netgsmResponseInterface;
+use BahriCanli\Netgsm\Http\Clients\NetgsmClientInterface;
+use BahriCanli\Netgsm\Http\Responses\NetgsmResponseInterface;
 
 /**
- * Class netgsmService.
+ * Class NetgsmService.
  */
-final class netgsmService
+final class NetgsmService
 {
     /**
-     * The netgsm client implementation.
+     * The Netgsm client implementation.
      *
-     * @var netgsmClientInterface
+     * @var NetgsmClientInterface
      */
     private $client;
 
@@ -60,9 +60,9 @@ final class netgsmService
     private $afterMultipleShortMessageCallback;
 
     /**
-     * netgsmService constructor.
+     * NetgsmService constructor.
      *
-     * @param  netgsmClientInterface                  $netgsmClient
+     * @param  NetgsmClientInterface                  $NetgsmClient
      * @param  ShortMessageFactoryInterface           $shortMessageFactory
      * @param  ShortMessageCollectionFactoryInterface $shortMessageCollectionFactory
      * @param  callable|null                          $beforeSingleShortMessageCallback
@@ -71,7 +71,7 @@ final class netgsmService
      * @param  callable|null                          $afterMultipleShortMessageCallback
      */
     public function __construct(
-        netgsmClientInterface $netgsmClient,
+        NetgsmClientInterface $NetgsmClient,
         ShortMessageFactoryInterface $shortMessageFactory,
         ShortMessageCollectionFactoryInterface $shortMessageCollectionFactory,
         $beforeSingleShortMessageCallback = null,
@@ -79,7 +79,7 @@ final class netgsmService
         $beforeMultipleShortMessageCallback = null,
         $afterMultipleShortMessageCallback = null
     ) {
-        $this->client = $netgsmClient;
+        $this->client = $NetgsmClient;
         $this->factory = $shortMessageFactory;
         $this->collectionFactory = $shortMessageCollectionFactory;
         $this->beforeSingleShortMessageCallback = $beforeSingleShortMessageCallback;
@@ -94,7 +94,7 @@ final class netgsmService
      * @param  array|string|ShortMessage $receivers The receiver(s) of the message or the message object.
      * @param  string|null               $body      The body of the message or null when using short message object.
      *
-     * @return netgsmResponseInterface The parsed netgsm response object.
+     * @return NetgsmResponseInterface The parsed Netgsm response object.
      */
     public function sendShortMessage($receivers, $body = null)
     {
@@ -120,7 +120,7 @@ final class netgsmService
      *
      * @param  array|ShortMessageCollection $messages An array containing short message arrays or collection.
      *
-     * @return netgsmResponseInterface The parsed netgsm response object.
+     * @return NetgsmResponseInterface The parsed Netgsm response object.
      */
     public function sendShortMessages($messages)
     {

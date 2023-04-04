@@ -1,13 +1,13 @@
 <?php
 
-namespace BahriCanli\netgsm\Http\Responses;
+namespace BahriCanli\Netgsm\Http\Responses;
 
 use BadMethodCallException;
 
 /**
- * Class netgsmHttpApiResponse.
+ * Class NetgsmHttpApiResponse.
  */
-final class netgsmHttpResponse implements netgsmResponseInterface
+final class NetgsmHttpResponse implements NetgsmResponseInterface
 {
     /**
      * The read response of SMS message request..
@@ -17,7 +17,7 @@ final class netgsmHttpResponse implements netgsmResponseInterface
     private $responseAttributes = [];
 
     /**
-     * The netgsm error codes.
+     * The Netgsm error codes.
      *
      * @var array
      */
@@ -88,7 +88,7 @@ final class netgsmHttpResponse implements netgsmResponseInterface
     public function groupId()
     {
         throw new BadMethodCallException(
-            "netgsm Http API responses do not group bulk message identifiers. Use messageReportIdentifiers instead."
+            "Netgsm Http API responses do not group bulk message identifiers. Use messageReportIdentifiers instead."
         );
     }
 

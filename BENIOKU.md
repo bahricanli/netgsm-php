@@ -1,14 +1,14 @@
-# PHP NetGsm Client
+# PHP Netgsm Client
 
-Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir netgsm servisi sağlar.
+Bu paket, hem XML hem Http API ile çalışan kullanımı kolay bir Netgsm servisi sağlar.
 
-This package provides an easy to use netgsm service which can be used with both XML and Http apis.
+This package provides an easy to use Netgsm service which can be used with both XML and Http apis.
 For the English version: [README](README.md)
 
 ## Contents
 
 - [Kurulum](#kurulum)
-    - [netgsm Servisinin Kurulmasi](#netgsm-servisinin-kurulmasi)
+    - [Netgsm Servisinin Kurulmasi](#Netgsm-servisinin-kurulmasi)
 - [Kullanim](#kullanim)
     - [Metotlar](#metotlar)
 - [Degisiklik Listesi](#degisiklik-listesi)
@@ -23,31 +23,31 @@ For the English version: [README](README.md)
 Bu paket, composer kullanılarak kurulabilir.
 
 ``` bash
-composer require bahricanli/netgsm-php
+composer require bahricanli/Netgsm-php
 ```
 
-### netgsm Servisinin Kurulmasi
+### Netgsm Servisinin Kurulmasi
 
-netgsm servisini kullanabilmek için kayıt olunmalı ve kontör satın alınmalı. 
+Netgsm servisini kullanabilmek için kayıt olunmalı ve kontör satın alınmalı. 
 
 ## Kullanim
 
-Önce, netgsmService sınıfı, istenilen istemci uyarlaması kullanarak çalıştırılır.
+Önce, NetgsmService sınıfı, istenilen istemci uyarlaması kullanarak çalıştırılır.
 
-- **netgsmXmlClient**
-- **netgsmHttpClient** (Bu daha ziyade Rest servisi gibi ama HTTP demeyi tercih etmiş.)
+- **NetgsmXmlClient**
+- **NetgsmHttpClient** (Bu daha ziyade Rest servisi gibi ama HTTP demeyi tercih etmiş.)
 
 ```php
 require __DIR__ . '/../vendor/autoload.php';
 
-use BahriCanli\netgsm\netgsmService;
-use BahriCanli\netgsm\ShortMessageFactory;
-use BahriCanli\netgsm\Http\Clients\netgsmXmlClient;
-use BahriCanli\netgsm\Http\Clients\netgsmHttpClient;
-use BahriCanli\netgsm\ShortMessageCollectionFactory;
+use BahriCanli\Netgsm\NetgsmService;
+use BahriCanli\Netgsm\ShortMessageFactory;
+use BahriCanli\Netgsm\Http\Clients\NetgsmXmlClient;
+use BahriCanli\Netgsm\Http\Clients\NetgsmHttpClient;
+use BahriCanli\Netgsm\ShortMessageCollectionFactory;
 
-$service = new netgsmService(new netgsmXmlClient(
-    'sms.netgsm.net/xml',
+$service = new NetgsmService(new NetgsmXmlClient(
+    'sms.Netgsm.net/xml',
     'username',
     'password',
     'outboxname'
@@ -55,9 +55,9 @@ $service = new netgsmService(new netgsmXmlClient(
 
 // ya da
 
-$service = new netgsmService(new netgsmHttpClient(
+$service = new NetgsmService(new NetgsmHttpClient(
     new GuzzleHttp\Client(),
-    'https://sms.netgsm.net/http',
+    'https://sms.Netgsm.net/http',
     'username',
     'password',
     'outboxname'
@@ -66,7 +66,7 @@ $service = new netgsmService(new netgsmHttpClient(
 
 ### Metotlar
 
-netgsmService örneğini başarıyla çalıştırdıktan sonra; aşağıda bulunan metotlardan birini kullanarak SMS(ler) göndermeye başlayabilirsiniz.
+NetgsmService örneğini başarıyla çalıştırdıktan sonra; aşağıda bulunan metotlardan birini kullanarak SMS(ler) göndermeye başlayabilirsiniz.
 
 #### Tek Mesaj - Bir ya da Daha Çok Alıcı
 
@@ -108,8 +108,8 @@ if($response2->isSuccessful()) {
 
 ### Dipnot
 
-Eğer istemci olarak `netgsmHttpClient` sınıfı kullanılıyorsa `$response->groupId()` çağrısı istisnaya sebep olur.
-Eğer istemci olarak `netgsmXmlClient` sınıfı kullanılıyorsa `$response->messageReportIdentifiers()` çağrısı istisnaya sebep olur.
+Eğer istemci olarak `NetgsmHttpClient` sınıfı kullanılıyorsa `$response->groupId()` çağrısı istisnaya sebep olur.
+Eğer istemci olarak `NetgsmXmlClient` sınıfı kullanılıyorsa `$response->messageReportIdentifiers()` çağrısı istisnaya sebep olur.
 
 İstemci uyarlamasını değiştirirken temkinli olun.
 
@@ -126,7 +126,7 @@ $ composer test
 
 ## Güvenlik
 
-Bu paket, netgsm tarafından sağlanan servisleri kullanmaktadır. Eğer istemci taraflı bir güvenlik açığı bulduysanız; lütfen
+Bu paket, Netgsm tarafından sağlanan servisleri kullanmaktadır. Eğer istemci taraflı bir güvenlik açığı bulduysanız; lütfen
 yeni bir ticket açmak yerine geliştiriciye e-posta atın.
 
 ## Katkıda Bulunun
