@@ -58,7 +58,7 @@ class ShortMessage
     public function toArray()
     {
         return array_filter([
-            'numbers'        => $this->receiversString(','),
+            'gsmno'        => $this->receiversString(','),
             'message'       => $this->body(),
         ]);
     }

@@ -67,8 +67,8 @@ class ShortMessageCollection
         }
 
         return [
-            'Msisdns'        => implode('|', $receivers),
-            'Messages'       => implode('|', $messages),
+            'gsmno'        => implode('|', $receivers),
+            'message'       => implode('|', $messages),
         ];
     }
 }

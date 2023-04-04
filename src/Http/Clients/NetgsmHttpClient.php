@@ -115,21 +115,7 @@ class NetgsmHttpClient implements NetgsmClientInterface
     private function getExtraPramaters()
     {
         return [
-            'action' => 0,
-            'messageType' => 'B',
-            'recipientType' => 'TACIR',
-        ];
-    }
-
-    /**
-     * Get the send date of the contents.
-     *
-     * @return array
-     */
-    private function getSendDate()
-    {
-        return [
-            'sDate' => null,
+            'filter' => 0,
         ];
     }
 
@@ -141,9 +127,9 @@ class NetgsmHttpClient implements NetgsmClientInterface
     private function getCredentials()
     {
         return [
-            'username'       => $this->username,
+            'usercode'       => $this->username,
             'password'       => $this->password,
-            'originator'     => $this->outboxName,
+            'msgheader'     => $this->outboxName,
         ];
     }
 }
