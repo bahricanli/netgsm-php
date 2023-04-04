@@ -94,13 +94,10 @@ class NetgsmXmlClient implements NetgsmClientInterface
     private function generateSingleMessageBody(ShortMessage $shortMessage)
     {
         $body = '<?xml version="1.0" encoding="UTF-8"?>';
-        $body .= '<Request>';
+        $body .= '<mainbody>';
         $body .= $this->generateAuthTags();
-        $body .= $this->getExtraPramaters();
-        $body .= $this->generateValidityRangeTags();
         $body .= $shortMessage->toSingleMessageXml();
-        $body .= '<description></description>';
-        $body .= '</Request>';
+        $body .= '</mainbody>';
         return $body;
     }
 
@@ -113,23 +110,13 @@ class NetgsmXmlClient implements NetgsmClientInterface
      */
     private function generateMultipleMessageBody(ShortMessageCollection $shortMessageCollection)
     {
-        $body = '<?xml version="1.0" encoding="UTF-8"?>';
-        $body .= '<Request>';
+        $body = "<?xml version='1.0' encoding='UTF-8'?>";
+        $body .= "<mainbody>";
         $body .= $this->generateAuthTags();
-        $body .= $this->getExtraPramaters();
-        $body .= $this->generateValidityRangeTags();
-        $body .= '<messageArray>';
         $body .= $shortMessageCollection->toXml();
-        $body .= '</messageArray>';
-        $body .= '<description></description>';
-        $body .= '</Request>';
+        $body .= "</mainbody>";
 
         return $body;
-    }
-
-    private function generateValidityRangeTags()
-    {
-        return '<senddate></senddate>';
     }
 
     /**
@@ -140,24 +127,13 @@ class NetgsmXmlClient implements NetgsmClientInterface
     private function generateAuthTags()
     {
 
-        return "<Authentication>"
-            ."<apikey>{$this->username}</apikey>"
-            . "<apisecret>{$this->password}</apisecret>"
-            . "</Authentication>"
-            . "<originator>{$this->outboxName}</originator>";
-    }
-
-    /**
-     * Get the extra parameters of the contents.
-     *
-     * @return array
-     */
-    private function getExtraPramaters()
-    {
-        return
-            '<messageType>'.'B'.'</messageType>'
-            .'<recipientType>'.'TACIR'.'</recipientType>'
-        ;
+        return "<header>"
+            . "<company dil='TR'>Netgsm</company>"
+            . "<usercode>{$this->username}</usercode>"
+            . "<password>{$this->password}</password>"
+            . "<msgheader>{$this->outboxName}</msgheader>"
+            . "<type>1:n</type>"
+            . "</header>";
     }
 
     /**

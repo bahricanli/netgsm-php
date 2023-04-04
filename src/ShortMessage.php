@@ -68,7 +68,7 @@ class ShortMessage
         $text = str_replace("'", "&apos;", htmlentities($this->body()));
         $gsmNo = $this->receiversString(',');
 
-        return "<message>{$text}</message><msisdnArray>{$gsmNo}</msisdnArray>";
+        return "<body><msg><![CDATA[{$text}]]></msg><no>{$gsmNo}</no></body>";
     }
 
     /**
@@ -79,8 +79,8 @@ class ShortMessage
     public function toMultipleMessagesXml()
     {
         $text = str_replace("'", "&apos;", htmlentities($this->body()));
-        $gsmNo = $this->receiversString(',');
+        $gsmNo = $this->receiversString('</no><no');
 
-        return "<message><msisdn>{$gsmNo}</msisdn><messageBody>{$text}</messageBody></message>";
+        return "<body><msg><![CDATA[{$text}]]></msg><no>{$gsmNo}</no></body>";
     }
 }
